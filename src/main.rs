@@ -41,11 +41,3 @@ fn spawn_directional_light(mut commands: Commands) {
 
     commands.spawn(light);
 }
-
-fn rotate_directional_light(
-    time: Res<Time>,
-    mut query: Query<&mut Transform, (With<DirectionalLight>, With<Name>)>,
-) {
-    let mut light = query.single_mut();
-    light.rotation *= Quat::from_rotation_y(time.delta_seconds() / 60. / 15.);
-}
